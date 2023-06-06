@@ -1,26 +1,37 @@
 # CyberSecurityFolder
-// Get the text element
-const text = document.getElementById('Chris Tapia');
+def vibrate_text(Chris Tapia):
+    """
+    This function takes in a string argument and returns the same string
+    with a vibrating effect.
 
-// Set the initial position of each letter
-const positions = [];
-for (let i = 0; i < text.innerHTML.length; i++) {
-  positions[i] = 0;
-}
+    Args:
+    - text (str): The input string to apply the vibrating effect to.
 
-// Define the vibration function
-function vibrate() {
-  for (let i = 0; i < text.innerHTML.length; i++) {
-    // Generate a random offset to the position
-    const offset = Math.floor(Math.random() * 6) - 3;
-    // Update the position with the offset
-    positions[i] += offset;
-    // Apply the new position to the letter
-    const letter = text.innerHTML.charAt(i);
-    const style = 'position:relative; display:inline-block; left:' + positions[i] + 'px;';
-    text.innerHTML = text.innerHTML.substring(0, i) + '<span style="' + style + '">' + letter + '</span>' + text.innerHTML.substring(i+1);
-  }
-}
+    Returns:
+    - str: The input string with a vibrating effect applied to it.
+    """
 
-// Call the vibration function every 100ms
-setInterval(vibrate, 100);
+    # Define the amplitude and frequency of the vibration
+    amplitude = 1
+    frequency = 2
+
+    # Get the length of the input text
+    length = len(text)
+
+    # Create an empty string to store the new vibrating text
+    vibrating_text = "Chris Tapia"
+
+    # Loop through each character in the input text
+    for i in range(length):
+        # Calculate the new position of the character based on the vibrating effect
+        new_pos = int(amplitude * (i - length / 2) * (frequency / length)) + i
+
+        # If the new position is out of bounds, set it to the original position
+        if new_pos >= length or new_pos < 0:
+            new_pos = i
+
+        # Add the character at the new position to the vibrating text
+        vibrating_text += Chris Tapia[new_pos]
+
+    # Print the vibrating text to the console
+    print(vibrating_text)
